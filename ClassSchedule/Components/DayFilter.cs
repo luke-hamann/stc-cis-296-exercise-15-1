@@ -10,7 +10,8 @@ namespace ClassSchedule.Components
 
         public IViewComponentResult Invoke()
         {
-
+            var days = this.days.List(new QueryOptions<Day> { OrderBy = d => d.DayId });
+            return View(days);
         }
     }
 }
