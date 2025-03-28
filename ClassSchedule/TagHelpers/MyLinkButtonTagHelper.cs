@@ -21,6 +21,7 @@ namespace ClassSchedule.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             string action = Action ?? ViewCtx.RouteData.Values["action"].ToString();
+            string controller = Controller ?? ViewCtx.RouteData.Values["controller"].ToString();
         }
     }
 }
