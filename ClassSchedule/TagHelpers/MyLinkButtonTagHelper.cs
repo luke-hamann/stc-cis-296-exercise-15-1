@@ -22,6 +22,7 @@ namespace ClassSchedule.TagHelpers
         {
             string action = Action ?? ViewCtx.RouteData.Values["action"].ToString();
             string controller = Controller ?? ViewCtx.RouteData.Values["controller"].ToString();
+            var id = new { Id };
         }
     }
 }
