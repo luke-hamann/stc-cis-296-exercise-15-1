@@ -17,5 +17,10 @@ namespace ClassSchedule.TagHelpers
 
         private LinkGenerator linkBuilder;
         public MyLinkButtonTagHelper(LinkGenerator lg) => linkBuilder = lg;
+
+        public override void Process(TagHelperContext context, TagHelperOutput output)
+        {
+            string action = Action ?? ViewCtx.RouteData.Values["action"].ToString();
+        }
     }
 }
