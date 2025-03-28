@@ -2,19 +2,11 @@
 
 @{
     ViewData["Title"] = "Class Schedule";
-
-    // get value of id route segment
-    int id = Convert.ToInt32(ViewContext.RouteData.Values["id"]);  
 }
 
 <div class="text-center">
     <h1 class="display-4">Class Schedule</h1>
 
-    @foreach (Day d in ViewBag.Days)
-    {
-        <my-link-button action="Index" id="@d.DayId" class="mr-1 mb-2" 
-            is-active="@(id == d.DayId)">@d.Name</my-link-button>
-    }
 </div>
 
 <a asp-action="Add" asp-controller="Class" class="ml-3">Add Class</a>
