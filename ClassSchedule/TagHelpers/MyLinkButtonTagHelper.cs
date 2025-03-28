@@ -24,6 +24,9 @@ namespace ClassSchedule.TagHelpers
             string controller = Controller ?? ViewCtx.RouteData.Values["controller"].ToString();
             var id = new { Id };
             string url = linkBuilder.GetPathByAction(action, controller, id) ?? "";
+
+            string css = "btn ";
+            css += (ViewCtx.RouteData.Values["id"]?.ToString() == Id) ? "btn-dark" : "btn-outline-dark";
         }
     }
 }
