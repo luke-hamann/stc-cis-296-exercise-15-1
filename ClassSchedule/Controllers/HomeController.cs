@@ -5,17 +5,11 @@ namespace ClassSchedule.Controllers
 {
     public class HomeController : Controller
     {
-        private IClassScheduleUnitOfWork data { get; set; }
-        public HomeController(IClassScheduleUnitOfWork unit) => data = unit;
+        private IRepository<Class> classes { get; set; }
+        public HomeController(IRepository<Class> rep) => classes = rep;
 
         public ViewResult Index(int id)
         {
-            // options for Days query
-            var dayOptions = new QueryOptions<Day> { 
-                OrderBy = d => d.DayId
-            };
-            ViewBag.Days = data.Days.List(dayOptions);
-
             // options for Classes query
             var classOptions = new QueryOptions<Class> {
                 Includes = "Teacher, Day"
@@ -30,7 +24,7 @@ namespace ClassSchedule.Controllers
             }
 
             // execute queries
-            return View(data.Classes.List(classOptions));
+            return View(classes.List(classOptions));
         }
     }
 }
