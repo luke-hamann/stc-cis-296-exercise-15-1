@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Routing;
 
 namespace ClassSchedule.TagHelpers
 {
@@ -7,5 +10,12 @@ namespace ClassSchedule.TagHelpers
         public string Action { get; set; }
         public string Controller { get; set; }
         public string Id { get; set; }
+
+        [ViewContext]
+        [HtmlAttributeNotBound]
+        public ViewContext ViewCtx { get; set; } = null!;
+
+        private LinkGenerator linkBuilder;
+        public MyLinkButtonTagHelper(LinkGenerator lg) => linkBuilder = lg;
     }
 }
