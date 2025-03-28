@@ -7,5 +7,10 @@ namespace ClassSchedule.Components
     {
         private IRepository<Day> days { get; set; }
         public DayFilter(IRepository<Day> rep) => days = rep;
+
+        public IViewComponentResult Invoke()
+        {
+
+        }
     }
 }
