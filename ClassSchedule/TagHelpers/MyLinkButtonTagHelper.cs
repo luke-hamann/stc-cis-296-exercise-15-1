@@ -27,6 +27,8 @@ namespace ClassSchedule.TagHelpers
 
             string css = "btn ";
             css += (ViewCtx.RouteData.Values["id"]?.ToString() == Id) ? "btn-dark" : "btn-outline-dark";
+
+            output.BuildLink(url, css);
         }
     }
 }
